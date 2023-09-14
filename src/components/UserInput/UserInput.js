@@ -7,11 +7,13 @@ const intialUserInput = {
   duration: 10,
 };
 
-const UserInput = () => {
+const UserInput = (props) => {
   const [userInput, setUserInput] = useState(intialUserInput);
   const submitHandler = (event) => {
     event.preventDefault(); // not reload the page
     console.log("SUBMIT");
+
+    props.onCalculate(userInput);
   };
   const resetHandler = () => {
     console.log("RESET");
