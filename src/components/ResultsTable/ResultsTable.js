@@ -1,12 +1,13 @@
+import classes from "./ResultsTable.module.css";
 const formatter = new Intl.NumberFormat("th-TH", {
   style: "currency",
   currency: "THB",
-  minimumFractionDigits: 2,
-  maximumFractionDigits: 2,
+  minimumFractionDigits: 0,
+  maximumFractionDigits: 0,
 });
 const ResultsTable = (props) => {
   return (
-    <table className="result">
+    <table className={classes.result}>
       <thead>
         <tr>
           <th>Year</th>
@@ -19,7 +20,7 @@ const ResultsTable = (props) => {
       <tbody>
         {props.data.map((yearData) => (
           <tr key={yearData.year}>
-            <td>{formatter.format(yearData.year)}</td>
+            <td>{yearData.year}</td>
             <td>{formatter.format(yearData.savingsEndOfYear)}</td>
             <td>{formatter.format(yearData.yearlyInterest)}</td>
             <td>
